@@ -20,64 +20,91 @@ public class MakeChangeApp {
 		double totalAmount, amountPaid;
 		int amountOwed;
 		// user story 1
-		System.out.println("Enter total amount: ");
+		System.out.print("Enter total amount: ");
 		totalAmount = sc.nextDouble();
 		// user story 2
-		System.out.println("Enter amount paid: ");
+		System.out.print("Enter amount paid: ");
 		amountPaid = sc.nextDouble();
 
-		double changeToConvert = amountPaid - totalAmount;
+		double change = amountPaid - totalAmount;
 
-		amountOwed = (int) (changeToConvert) * (100);
+		amountOwed = (int) ((change) * (100));
 		// change is exact or not enough money
-		if (amountOwed < 0) {
+
+		if (totalAmount > amountPaid) {
 			System.out.println("Insufficient funds. Please provide additional money.");
-		} else if (amountOwed == 0) {
+		} else if (amountPaid == totalAmount) {
 			System.out.println("Exact change. Thank you!!");
 		} else {
 			makeChange(amountOwed);
+			System.out.println("Change total: $" + change);
 		}
-
-		System.out.println("Change total: $" + (amountOwed/100));
 
 	}
 
 	public static void makeChange(int change) {
 		int twentiesOwed, tensOwed, fivesOwed, onesOwed;
 		int quartersOwed, dimesOwed, nicklesOwed, penniesOwed;
-		
+
 		twentiesOwed = change / 2000;
-		change = change % 2000; 
-		System.out.println(twentiesOwed + " twenties");
-		
+		change = change % 2000;
+		if (twentiesOwed == 1) {
+			System.out.println(twentiesOwed + " twenty dollar bill");
+		} else if (twentiesOwed != 0) {
+			System.out.println(twentiesOwed + " twenty dollar bills");
+		}
+
 		tensOwed = change / 1000;
 		change = change % 1000;
-	    System.out.println(tensOwed + " tens");
-	    
-	    fivesOwed = change / 500;
-	    change = change % 500;
-	    System.out.println(fivesOwed + " fives");
-	    
-	    onesOwed = change / 100;
-	    change = change % 100;
-	    System.out.println(onesOwed + " ones");
-	    
-	    quartersOwed = change / 25;
-	    change = change % 25;
-	    System.out.println(quartersOwed + " quarters");
-	    
-	    dimesOwed = change / 10;
-	    change = change % 10;
-	    System.out.println(dimesOwed +" dimes");
-	    
-	    nicklesOwed = change / 5;
-	    change = change % 5;
-	    System.out.println(nicklesOwed + " nickles");
-	    
-	    penniesOwed = change / 1;
-	    change = change % 1;
-	    System.out.println(penniesOwed + " pennies");
-	     
+		if (tensOwed == 1) {
+			System.out.println(tensOwed + " ten dollar bill");
+		} else if (tensOwed != 0) {
+			System.out.println(tensOwed + " ten dollar bills");
+		}
+
+		fivesOwed = change / 500;
+		change = change % 500;
+		if (fivesOwed != 0) {
+			System.out.println(fivesOwed + " five dollar bill");
+		}
+
+		onesOwed = change / 100;
+		change = change % 100;
+		if (onesOwed == 1) {
+			System.out.println(onesOwed + " one dollar bill");
+		}else if (onesOwed != 0) {
+			System.out.println(onesOwed + " one dollar bills");
+		}
+
+		quartersOwed = change / 25;
+		change = change % 25;
+		if (quartersOwed == 1) {
+			System.out.println(quartersOwed + " quarter");
+		}else if (quartersOwed != 0) {
+			System.out.println(quartersOwed + " quarters");
+		}
+
+		dimesOwed = change / 10;
+		change = change % 10;
+		if (dimesOwed == 1) {
+			System.out.println(dimesOwed + " dime");
+		}else if (dimesOwed != 0) {
+			System.out.println(dimesOwed + " dimes");
+		}
+
+		nicklesOwed = change / 5;
+		change = change % 5;
+		if (nicklesOwed != 0) {
+			System.out.println(nicklesOwed + " nickle");
+		}
+
+		penniesOwed = change / 1;
+		change = change % 1;
+		if (penniesOwed == 1) {
+			System.out.println(penniesOwed + " penny");
+		}else if (penniesOwed != 0) {
+			System.out.println(penniesOwed + " pennies");
+		}
 	}
 
 }
